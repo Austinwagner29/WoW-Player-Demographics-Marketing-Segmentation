@@ -1,2 +1,2 @@
-# World-of-Warcraft-Player-Demographics-Marketing-Segmentation
+# World of Warcraft Player Demographics Marketing Segmentation
 test
