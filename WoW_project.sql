@@ -25,7 +25,7 @@ ORDER BY Gender;
 
 -- ^ Did this for all columns
 
--- Also Wanted to check for spelling errors in the more congested columns such as  "Role", "Class", and "Race"
+-- Checked for spelling errors in the more congested columns such as  "Role", "Class", and "Race"
 
 SELECT
     TRIM(Split_Roles) AS Role,
