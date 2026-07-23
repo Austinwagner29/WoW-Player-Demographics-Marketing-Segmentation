@@ -109,7 +109,7 @@ FROM `austin-wagner-projects.WoW_Demographics.Full Table`
 -- -- Are there any patterns or relationships we can make to focus on a specific audience for the next marketing campaign?
 
     
--- Grouped gender and tracked the total to get insight on what percentage makes up this dataset
+-- Grouped gender and tracked the total to get insight on what percentage makes up this dataset.
 */
 SELECT
   Gender,
@@ -130,7 +130,7 @@ ORDER BY
 +---------+-------------+ 
 
 
--- Will use these query results to calculate percentages
+-- Will use these query results to calculate percentages.
 */
     
 SELECT
@@ -155,7 +155,7 @@ GROUP BY
   Role;
 
 
-/* QUERY RESULTS PREVIEW: Total Count for Roles for each gender
+/* QUERY RESULTS PREVIEW: Total Count for Roles for each gender.
 +---------+---------+------------+------------+
 | Gender  | Role    | Role_Count | Percentage |
 +---------+---------+------------+------------+
@@ -169,8 +169,9 @@ GROUP BY
 | Other   | Healer  |      5     |   35.71%   |
 | Other   | Tank    |      2     |   14.29%   |
 +---------+---------+------------+------------+
+
+-- -- Business Insights:
+- DPS is the most popular role across every gender demographic.
+- Male players show the most balanced role distribution, with relatively higher participation in both Healer (42.86%) and Tank (39.29%) roles.
+- Tank is the least selected role among Female (27.59%) and Other (14.29%) players, suggesting a stronger preference toward DPS and Healer roles.
 */
-
---
-
--- 
