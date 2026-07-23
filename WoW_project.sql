@@ -70,9 +70,9 @@ SELECT
     Attracted,
     Type,
 
-
+/*  
 -- Cleaned Country Column
-  
+*/
     CASE
         WHEN LOWER(TRIM(Country)) = 'usa' THEN 'USA'
         WHEN LOWER(TRIM(Country)) = 'méxici' THEN 'Mexico'
@@ -86,9 +86,10 @@ SELECT
         ELSE TRIM(Country)
     END AS Country,
 
-  
+/*  
 -- Replaced / Cleaned Values for easier Readability
-  
+*/
+    
     Main AS `Main Character Gender`,
     Faction,
     CASE
@@ -102,14 +103,14 @@ SELECT
 
 FROM `austin-wagner-projects.WoW_Demographics.Full Table`
 
-
+/*
 -- -- Business Question 1: Patterns or Trends between gender and role/class
 -- -- Are there any patterns or relationships we can make to focus on a specific audience for the next marketing campaign?
 
-
+    
 -- Grouped gender and tracked the total to get insight on what percentage makes up this dataset
-
-  SELECT
+*/
+SELECT
   Gender,
   COUNT(*) AS Total_Count
 FROM `austin-wagner-projects.WoW_Demographics.Cleaned Table`
@@ -118,7 +119,7 @@ GROUP BY
 ORDER BY 
   Total_Count DESC
 
-  /* Query Results
+/* Query Results
 +---------+-------------+
 | Gender  | Total_Count |
 +---------+-------------+
@@ -126,41 +127,49 @@ ORDER BY
 | Male    |     28      |
 | Other   |     14      |
 +---------+-------------+ 
-  */
 
-  -- -- Insights: 58 out of 100 entries are Female, We will circle back to this when calculating the percentage for the number of each role to gender
 
-  -- Lets see the count of "Roles" tied to each gender
-  
+-- Will use these query results to calculate percentages
+*/
+    
 SELECT
   Gender,
-  TRIM(Trimmed_table) AS Role,
-  COUNT(*) AS Total_count
+  TRIM(Role_name) AS Role,
+  COUNT(Role) AS Role_Count,
+
+  ROUND(
+    COUNT(Role) /
+    CASE
+      WHEN Gender = 'Female' THEN 58
+      WHEN Gender = 'Male' THEN 28
+      WHEN Gender = 'Other' THEN 14
+    END * 100,
+    2
+  ) AS Percentage
+
 FROM `austin-wagner-projects.WoW_Demographics.Cleaned Table`
-CROSS JOIN UNNEST(Split(Role, ',')) AS Trimmed_table
-GROUP BY
+CROSS JOIN UNNEST(SPLIT(Role, ',')) AS Role_name
+GROUP BY 
   Gender,
-  Role
-ORDER BY
-  Gender,
-  Role,
-  Total_Count DESC;
+  Role;
 
 
-*/ QUERY RESULTS PREVIEW: Total Count for Roles for each gender
-+---------+---------+-------------+
-| Gender  | Role    | Total_Count |
-+---------+---------+-------------+
-| Female  | DPS     |      49     |
-| Female  | Healer  |      23     |
-| Female  | Tank    |      16     |
-| Male    | DPS     |      21     |
-| Male    | Healer  |      12     |
-| Male    | Tank    |      11     |
-| Other   | DPS     |      12     |
-| Other   | Healer  |       5     |
-| Other   | Tank    |       2     |
-+---------+---------+-------------+
+/* QUERY RESULTS PREVIEW: Total Count for Roles for each gender
++---------+---------+------------+------------+
+| Gender  | Role    | Role_Count | Percentage |
++---------+---------+------------+------------+
+| Female  | DPS     |     49     |   84.48%   |
+| Female  | Healer  |     23     |   39.66%   |
+| Female  | Tank    |     16     |   27.59%   |
+| Male    | DPS     |     21     |   75.00%   |
+| Male    | Healer  |     12     |   42.86%   |
+| Male    | Tank    |     11     |   39.29%   |
+| Other   | DPS     |     12     |   85.71%   |
+| Other   | Healer  |      5     |   35.71%   |
+| Other   | Tank    |      2     |   14.29%   |
++---------+---------+------------+------------+
 */
+
+--
 
 -- 
