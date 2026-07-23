@@ -4,14 +4,14 @@
 
 -- DATA Cleaning Process:
 
-
+/*
 Issues Identified
 
 * Inconsistent country values (Ex. usa changed to USA)
 * Missing values
 * Spelling Errors
 * Multiple Roles in one field
-
+*/
 
 
 -- Did a simple check for leading or trailing spaces along with distinct values and spelling to see if a clean up for any specific columns were necessary.  
