@@ -105,7 +105,7 @@ SELECT
 FROM `austin-wagner-projects.WoW_Demographics.Full Table`
 
 /*
--- -- Business Question 1: Patterns or Trends between gender and role/class
+-- -- Business Question 1: Patterns or Trends between gender and role/class.
 -- -- Are there any patterns or relationships we can make to focus on a specific audience for the next marketing campaign?
 
     
@@ -174,4 +174,6 @@ GROUP BY
 - DPS is the most popular role across every gender demographic.
 - Male players show the most balanced role distribution, with relatively higher participation in both Healer (42.86%) and Tank (39.29%) roles.
 - Tank is the least selected role among Female (27.59%) and Other (14.29%) players, suggesting a stronger preference toward DPS and Healer roles.
-*/
+
+
+-- -- Business Question 2: 
