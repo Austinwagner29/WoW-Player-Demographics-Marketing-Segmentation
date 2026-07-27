@@ -2,9 +2,11 @@
 -- Analyze World of Warcraft player demographics and gameplay preferences to identify meaningful customer segments and provide marketing recommendations.
 
 
--- DATA Cleaning Process:
+/* ================================================
+   DATA CLEANING AND VALIDATION
+   ================================================ 
 
-/*
+
 Issues Identified
 
 * Inconsistent country values (Ex. usa changed to USA)
@@ -20,18 +22,18 @@ Issues Identified
 SELECT
     Gender,
     COUNT(*) AS Num_of_counts
-FROM `austin-wagner-projects.WoW_Demographics.Cleaned Table`
+FROM `austin-wagner-projects.WoW_Demographics.Full Table`
 GROUP BY Gender
 ORDER BY Gender;
 
--- ^ Did this for all columns
+-- Repeated this process across the dataset
 
 -- Checked for spelling errors in the more congested columns such as  "Role", "Class", and "Race"
 
 SELECT
     TRIM(Split_Roles) AS Role,
     COUNT(*) AS Num_of_counts
-FROM `austin-wagner-projects.WoW_Demographics.Cleaned Table`,
+FROM `austin-wagner-projects.WoW_Demographics.Full Table`,
 UNNEST(SPLIT(Role, ', ')) AS Split_Roles
 GROUP BY Role
 ORDER BY Role;
@@ -39,7 +41,7 @@ ORDER BY Role;
 SELECT
     TRIM(Split_classes) AS Class,
     COUNT(*) AS Num_of_counts
-FROM `austin-wagner-projects.WoW_Demographics.Cleaned Table`,
+FROM `austin-wagner-projects.WoW_Demographics.Full Table`,
 UNNEST(SPLIT(Class, ', ')) AS Split_classes
 GROUP BY Class
 ORDER BY Class;
@@ -47,7 +49,7 @@ ORDER BY Class;
 SELECT
     TRIM(Split_Races) AS Race,
     COUNT(*) AS Num_of_counts
-FROM `austin-wagner-projects.WoW_Demographics.Cleaned Table`,
+FROM `austin-wagner-projects.WoW_Demographics.Full Table`,
 UNNEST(SPLIT(Race, ', ')) AS Split_Races
 GROUP BY Race
 ORDER BY Race;
@@ -102,35 +104,38 @@ SELECT
     REPLACE(Race, ';', ', ') AS Race,
     Max AS `Max Level Characters`,
 
-FROM `austin-wagner-projects.WoW_Demographics.Full Table`
+FROM `austin-wagner-projects.WoW_Demographics.Full Table`;
 
-/*
--- -- Business Question 1: Patterns or Trends between gender and role/class.
--- -- Are there any patterns or relationships we can make to focus on a specific audience for the next marketing campaign?
+
+/* ==========================================================
+   BUSINESS QUESTION 1
+   Are Patterns or Trends between gender and role/class?
+   ==========================================================
 
     
 -- Grouped gender and tracked the total to get insight on what percentage makes up this dataset.
 */
+
 SELECT
   Gender,
-  COUNT(*) AS Total_Count
+  COUNT(*) AS Total_Gender_Count
 FROM `austin-wagner-projects.WoW_Demographics.Cleaned Table`
 GROUP BY 
   Gender
 ORDER BY 
-  Total_Count DESC
+  Total_Count DESC;
 
-/* Query Results
-+---------+-------------+
-| Gender  | Total_Count |
-+---------+-------------+
-| Female  |     58      |
-| Male    |     28      |
-| Other   |     14      |
-+---------+-------------+ 
+/* QUERY RESULTS for Total gender count
++---------+--------------------+
+| Gender  | Total_Gender_Count |
++---------+--------------------+
+| Female  |          58        |
+| Male    |          28        |
+| Other   |          14        |
++---------+--------------------+ 
 
 
--- Will use these query results to calculate percentages.
+-- Will use the query results above to calculate percentages.
 */
     
 SELECT
@@ -152,21 +157,23 @@ FROM `austin-wagner-projects.WoW_Demographics.Cleaned Table`
 CROSS JOIN UNNEST(SPLIT(Role, ',')) AS Role_name
 GROUP BY 
   Gender,
-  Role;
+  Role
+ORDER BY
+  Percentage DESC;
 
 
 /* QUERY RESULTS PREVIEW: Total Count for Roles for each gender.
 +---------+---------+------------+------------+
 | Gender  | Role    | Role_Count | Percentage |
 +---------+---------+------------+------------+
+| Other   | DPS     |     12     |   85.71%   |
 | Female  | DPS     |     49     |   84.48%   |
-| Female  | Healer  |     23     |   39.66%   |
-| Female  | Tank    |     16     |   27.59%   |
 | Male    | DPS     |     21     |   75.00%   |
 | Male    | Healer  |     12     |   42.86%   |
+| Female  | Healer  |     23     |   39.66%   |
 | Male    | Tank    |     11     |   39.29%   |
-| Other   | DPS     |     12     |   85.71%   |
 | Other   | Healer  |      5     |   35.71%   |
+| Female  | Tank    |     16     |   27.59%   |
 | Other   | Tank    |      2     |   14.29%   |
 +---------+---------+------------+------------+
 
@@ -174,6 +181,67 @@ GROUP BY
 - DPS is the most popular role across every gender demographic.
 - Male players show the most balanced role distribution, with relatively higher participation in both Healer (42.86%) and Tank (39.29%) roles.
 - Tank is the least selected role among Female (27.59%) and Other (14.29%) players, suggesting a stronger preference toward DPS and Healer roles.
+*/
+
+-- Lets take a look at the Class percentages now.
+
+SELECT
+  Gender,
+  TRIM(Class_name) AS Class,
+  COUNT(Role) AS Class_Count,
+
+  ROUND(
+    COUNT(Class) /
+    CASE
+      WHEN Gender = 'Female' THEN 58
+      WHEN Gender = 'Male' THEN 28
+      WHEN Gender = 'Other' THEN 14
+    END * 100,
+    2
+  ) AS Percentage
+
+FROM `austin-wagner-projects.WoW_Demographics.Cleaned Table`
+CROSS JOIN UNNEST(SPLIT(Class, ',')) AS Class_name
+GROUP BY 
+  Gender,
+  Class
+HAVING
+  Percentage > 20
+ORDER BY
+  Gender DESC,
+  Percentage DESC;
+
+/* QUERY RESULTS PREVIEW: Class Count Percentages
++---------+----------------+-------------+------------+
+| Gender  | Class          | Class_Count | Percentage |
++---------+----------------+-------------+------------+
+| Other   | Druid          |      6      |   42.86%   |
+| Other   | Death Knight   |      5      |   35.71%   |
+| Other   | Hunter         |      5      |   35.71%   |
+| Other   | Demon Hunter   |      4      |   28.57%   |
+| Other   | Warlock        |      3      |   21.43%   |
+| Other   | Priest         |      3      |   21.43%   |
+| Other   | Warrior        |      3      |   21.43%   |
+| Male    | Monk           |      8      |   28.57%   |
+| Male    | Hunter         |      7      |   25.00%   |
+| Male    | Death Knight   |      6      |   21.43%   |
+| Male    | Priest         |      6      |   21.43%   |
+| Female  | Druid          |     22      |   37.93%   |
+| Female  | Hunter         |     19      |   32.76%   |
+| Female  | Death Knight   |     17      |   29.31%   |
+| Female  | Paladin        |     15      |   25.86%   |
+| Female  | Priest         |     14      |   24.14%   |
++---------+----------------+-------------+------------+
+*/
+
+-- -- Business Insights:
+-- Druid is a popular Class for Female (37.93%%) and Other (42.86%) players while Monk is more popular for Male (28.57%) players.
+-- Death knight and Hunter demonstrate consistent popularity across all demographics.
 
 
--- -- Business Question 2: 
+-- Conclusion: Yes there are patterns/trends
+
+/* ============================================================
+   Business Question 2: 
+   Which demographic represents the largest share of the player base, and how might Blizzard prioritize its marketing efforts based on this sample? 
+   ============================================================ */
