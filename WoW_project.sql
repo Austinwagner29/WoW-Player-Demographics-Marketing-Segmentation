@@ -56,7 +56,6 @@ ORDER BY Race;
 
 
 
-
 -- Cleaned and filtered the necessary columns and created new table to work in
 
 
@@ -73,9 +72,9 @@ SELECT
     Attracted,
     Type,
 
-/*  
+
 -- Cleaned Country Column
-*/
+
     CASE
         WHEN LOWER(TRIM(Country)) = 'usa' THEN 'USA'
         WHEN LOWER(TRIM(Country)) = 'méxici' THEN 'Mexico'
@@ -89,10 +88,9 @@ SELECT
         ELSE TRIM(Country)
     END AS Country,
 
-/*  
+   
 -- Replaced / Cleaned Values for easier Readability
-*/
-    
+
     Main AS `Main Character Gender`,
     Faction,
     CASE
@@ -108,13 +106,14 @@ FROM `austin-wagner-projects.WoW_Demographics.Full Table`;
 
 
 /* ==========================================================
-   BUSINESS QUESTION 1
+   BUSINESS QUESTION 1:
+
    Are Patterns or Trends between gender and role/class?
-   ==========================================================
+   ========================================================== */
 
     
 -- Grouped gender and tracked the total to get insight on what percentage makes up this dataset.
-*/
+
 
 SELECT
   Gender,
@@ -133,10 +132,9 @@ ORDER BY
 | Male    |          28        |
 | Other   |          14        |
 +---------+--------------------+ 
-
+*/
 
 -- Will use the query results above to calculate percentages.
-*/
     
 SELECT
   Gender,
@@ -183,7 +181,7 @@ ORDER BY
 - Tank is the least selected role among Female (27.59%) and Other (14.29%) players, suggesting a stronger preference toward DPS and Healer roles.
 */
 
--- Lets take a look at the Class percentages now.
+-- Lets investigate the Class percentages now.
 
 SELECT
   Gender,
@@ -232,16 +230,88 @@ ORDER BY
 | Female  | Paladin        |     15      |   25.86%   |
 | Female  | Priest         |     14      |   24.14%   |
 +---------+----------------+-------------+------------+
-*/
+
 
 -- -- Business Insights:
 -- Druid is a popular Class for Female (37.93%%) and Other (42.86%) players while Monk is more popular for Male (28.57%) players.
 -- Death knight and Hunter demonstrate consistent popularity across all demographics.
 
 
--- Conclusion: Yes there are patterns/trends
+-- Conclusion: Yes, the analysis indicates clear trends in Class/Role preferences across gender demographics. DPS is the dominant role among all three groups, while Druid 
+   is the leading class for Female and Other players. Male players, however, show the strongest preference for Monk. Death Knight and Hunter also exhibit consistent 
+   popularity across every demographic.
 
-/* ============================================================
-   Business Question 2: 
-   Which demographic represents the largest share of the player base, and how might Blizzard prioritize its marketing efforts based on this sample? 
-   ============================================================ */
+
+   ========================================================
+   BUSINESS QUESTION 2: 
+
+   How do gameplay preferences (PvE, PvP, and Roleplay) 
+   vary across different player demographics, and what
+   opportunities do these trends create for Blizzard's
+   future content and marketing strategies?
+   ======================================================== */
+
+-- Lets investigate the gameplay type based off the demograpic of the player.
+
+SELECT DISTINCT
+  TRIM(Split_Server) AS Server_Type,
+  COUNT(Split_Server) AS Player_Count
+FROM
+  `austin-wagner-projects.WoW_Demographics.Cleaned Table`
+CROSS JOIN UNNEST (Split(Server, '/')) AS Split_server
+GROUP BY
+  Server_Type
+ORDER BY
+  Player_Count DESC;
+
+
+/* QUERY RESULTS: Overall Gameplay Preference
++-------------+--------------+
+| Server_Type | Player_Count |
++-------------+--------------+
+| PvE         |      59      |
+| RP          |      36      |
+| PvP         |      25      |
++-------------+--------------+
+*/
+
+-- We can see the overall gameplay preference is PvE, lets take a look if that varies across gender.
+
+SELECT DISTINCT
+  Gender,
+  TRIM(Split_Server) AS Server_Type,
+  COUNT(Split_Server) AS Player_Count
+FROM
+  `austin-wagner-projects.WoW_Demographics.Cleaned Table`
+CROSS JOIN UNNEST (Split(Server, '/')) AS Split_server
+GROUP BY
+  Gender,
+  Server_Type
+ORDER BY
+  Gender ASC,
+  Player_Count DESC;
+
+
+/* QUERY RESULTS: Gameplay Preference by gender
++--------+-------------+--------------+
+| Gender | Server_Type | Player_Count |
++--------+-------------+--------------+
+| Female | PvE         |      36      |
+| Female | RP          |      20      |
+| Female | PvP         |      17      |
+| Male   | PvE         |      17      |
+| Male   | RP          |       9      |
+| Male   | PvP         |       6      |
+| Other  | RP          |       7      |
+| Other  | PvE         |       6      |
+| Other  | PvP         |       2      |
++--------+-------------+--------------+
+
+-- -- Business insight:
+-- PvE has the highest popularity among female and male players, with substantially higher participation than either RP or PvP.
+-- Players in the Other demographic show a much stronger preference for RP and PvE server types than PvP
+-- PvP is the least represented gameplay style across all three gender demographics
+
+-- Suggestion: Within this survey, PvE is the most popular gameplay, suggesting that future marketing campaigns and content releases surrounding PvE-focused players would reach the largest audience. 
+   However, RP and PvP players should not be overlooked, as they represent meaningful player segments that may benefit and provide growth from targeted events, promotions, and gameplay updates.
+*/
