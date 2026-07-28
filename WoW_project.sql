@@ -105,6 +105,9 @@ SELECT
 FROM `austin-wagner-projects.WoW_Demographics.Full Table`;
 
 
+-- After the new table is made, lets start asking the important business questions.
+
+
 /* ==========================================================
    BUSINESS QUESTION 1:
 
@@ -242,14 +245,13 @@ ORDER BY
    popularity across every demographic.
 
 
-   ========================================================
+   =======================================================================
    BUSINESS QUESTION 2: 
 
-   How do gameplay preferences (PvE, PvP, and Roleplay) 
-   vary across different player demographics, and what
-   opportunities do these trends create for Blizzard's
-   future content and marketing strategies?
-   ======================================================== */
+   How do gameplay preferences (PvE, PvP, and Roleplay) vary across 
+   different player demographics, and what opportunities do these trends 
+   create for Blizzard's future content and marketing strategies?
+   ======================================================================= */
 
 -- Lets investigate the gameplay type based off the demograpic of the player.
 
@@ -307,11 +309,79 @@ ORDER BY
 | Other  | PvP         |       2      |
 +--------+-------------+--------------+
 
--- -- Business insight:
+-- -- Business insights:
 -- PvE has the highest popularity among female and male players, with substantially higher participation than either RP or PvP.
 -- Players in the Other demographic show a much stronger preference for RP and PvE server types than PvP
 -- PvP is the least represented gameplay style across all three gender demographics
 
 -- Suggestion: Within this survey, PvE is the most popular gameplay, suggesting that future marketing campaigns and content releases surrounding PvE-focused players would reach the largest audience. 
    However, RP and PvP players should not be overlooked, as they represent meaningful player segments that may benefit and provide growth from targeted events, promotions, and gameplay updates.
+
+
+   ==========================================================================
+   BUSINESS QUESTION 3
+
+   What player segment appears to be the most engaged based off the number 
+   of max level characters that players has?
+   ========================================================================== */
+
+-- Lets investigate on how many players have max level toons.
+
+SELECT
+  STRING_AGG(DISTINCT gender, ', ' ORDER BY Gender) AS Genders,
+  `Max Level Characters` AS Max_level_Toons,
+  COUNT(Gender) AS Player_Count
+FROM
+  `austin-wagner-projects.WoW_Demographics.Cleaned Table`
+GROUP BY
+  Max_Level_Toons
+ORDER BY 
+  Max_level_toons DESC;
+
+/* QUERY RESULTS: Max Level Characters by Gender
++----------------------+-----------------+--------------+
+| Genders              | Max_Level_Toons | Player_Count |
++----------------------+-----------------+--------------+
+| Male                 | 12              | 1            |
+| Male                 | 11              | 1            |
+| Male                 | 9               | 1            |
+| Female, Male         | 7               | 2            |
+| Female, Male, Other  | 6               | 10           |
+| Female, Male, Other  | 5               | 9            |
+| Female, Male, Other  | 4               | 11           |
+| Female, Male, Other  | 3               | 11           |
+| Female, Male, Other  | 2               | 28           |
+| Female, Male, Other  | 1               | 20           |
+| Female, Male, Other  | 0               | 6            |
++----------------------+-----------------+--------------+
+
+-- While Male players have the highest max level characters (9-12), the majority of the players fall between the range of 1 to 6 max level characters. 
+
+-- Calculating the average number of max level characters by gender of this result will give greater insight on player engagement through this survey
 */
+
+SELECT
+  Gender,
+  ROUND(AVG(`Max Level Characters`), 2) AS AVG_Max_Toons,
+  Count(*) AS Total_Count
+FROM
+  `austin-wagner-projects.WoW_Demographics.Cleaned Table`
+WHERE `Max Level Characters` BETWEEN 1 AND 6
+GROUP BY
+  Gender
+ORDER BY
+  AVG_Max_Toons DESC;
+
+/* QUERY RESULTS: Average Max Level Characters by Gender
++--------+---------------+-------------+
+| Gender | AVG_Max_Toons | Total_Count |
++--------+---------------+-------------+
+| Other  |     3.42      |     12      |
+| Female |     2.91      |     55      |
+| Male   |     2.59      |     22      |
++--------+---------------+-------------+
+
+-- Players in the Other gender demographic shows the highest average of max level characters (3.42) compared to the Female (2.91) and Male (2.59) players.
+   Although the Other gender demographic respresents the smallest total count in this survey, engagement levels are the highest
+
+-- Female players not only make up the largest portion of the survey, but this also shows a higher average engagement of female players compared to Male players
