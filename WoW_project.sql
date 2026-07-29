@@ -26,7 +26,7 @@ FROM `austin-wagner-projects.WoW_Demographics.Full Table`
 GROUP BY Gender
 ORDER BY Gender;
 
--- Repeated this process across the dataset
+-- Repeated this process across the dataset.
 
 -- Checked for spelling errors in the more congested columns such as  "Role", "Class", and "Race"
 
@@ -56,7 +56,7 @@ ORDER BY Race;
 
 
 
--- Cleaned and filtered the necessary columns and created new table to work in
+-- Cleaned and filtered the columns and created new table to work in.
 
 
 CREATE OR REPLACE TABLE
@@ -311,11 +311,14 @@ ORDER BY
 
 -- -- Business insights:
 -- PvE has the highest popularity among female and male players, with substantially higher participation than either RP or PvP.
--- Players in the Other demographic show a much stronger preference for RP and PvE server types than PvP
--- PvP is the least represented gameplay style across all three gender demographics
+-- Players in the Other demographic show a much stronger preference for RP and PvE server types than PvP.
+-- PvP is the least represented gameplay style across all three gender demographics.
 
--- Suggestion: Within this survey, PvE is the most popular gameplay, suggesting that future marketing campaigns and content releases surrounding PvE-focused players would reach the largest audience. 
+-- Conclusion: Within this survey, PvE is the most popular gameplay, suggesting that future marketing campaigns and content releases surrounding PvE-focused players would reach the largest audience. 
    However, RP and PvP players should not be overlooked, as they represent meaningful player segments that may benefit and provide growth from targeted events, promotions, and gameplay updates.
+
+-- Recommendation: Blizzard should focus on new content releases around PvE gameplay to maximize reach towards the largest audience. At the same time, Blizzard should still support the RP
+   and PvP community through targeted events and active updates to make that portion of the community feel seen and heard which could increase the growth and interest for those gameplay types.
 
 
    ==========================================================================
@@ -381,7 +384,14 @@ ORDER BY
 | Male   |     2.59      |     22      |
 +--------+---------------+-------------+
 
--- Players in the Other gender demographic shows the highest average of max level characters (3.42) compared to the Female (2.91) and Male (2.59) players.
-   Although the Other gender demographic respresents the smallest total count in this survey, engagement levels are the highest
+-- -- Business Insights:
+-- The Other gender demographic has the highest average number of max-level characters (3.42)
+-- Female players respresent the largest portion of this survey while still maintaining high engagement with the average of max-level characters (2.91)
+-- Although Male players have the highest individual number of max-level characters, their overall engagement is the lowest among the three demographics (2.59)
 
--- Female players not only make up the largest portion of the survey, but this also shows a higher average engagement of female players compared to Male players
+-- Conclusion: the Other gender demographic has the highest engagement, although the Female players should still be marketed to due to them making up the largest 
+   population in this survey
+
+-- Recommendation: Blizzard should priorities marketing campaigns and promotional events towards the Female player base as they show great engagement while also making
+   up the largest population of this survey. It is important to note that the Other gender demographic maintains the highest average max-level character, and will
+   still benefit from incorporating events for this player base
