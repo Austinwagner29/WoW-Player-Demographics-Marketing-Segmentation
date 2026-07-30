@@ -385,13 +385,13 @@ ORDER BY
 +--------+---------------+-------------+
 
 -- -- Business Insights:
--- The Other gender demographic has the highest average number of max-level characters (3.42)
--- Female players respresent the largest portion of this survey while still maintaining high engagement with the average of max-level characters (2.91)
--- Although Male players have the highest individual number of max-level characters, their overall engagement is the lowest among the three demographics (2.59)
+-- The Other gender demographic has the highest average number of max level characters (3.42)
+-- Female players respresent the largest portion of this survey while still maintaining high engagement with the average of max level characters (2.91)
+-- Although Male players have the highest individual number of max level characters, their overall engagement is the lowest among the three demographics (2.59)
 
 -- Conclusion: the Other gender demographic has the highest engagement, although the Female players should still be marketed to due to them making up the largest 
    population in this survey
 
--- Recommendation: Blizzard should priorities marketing campaigns and promotional events towards the Female player base as they show great engagement while also making
-   up the largest population of this survey. It is important to note that the Other gender demographic maintains the highest average max-level character, and will
+-- Recommendation: Blizzard should prioritize marketing campaigns and promotional events towards the Female player base as they show great engagement while also making
+   up the largest population of this survey. It is important to note that the Other gender demographic maintains the highest average max level character, and will
    still benefit from incorporating events for this player base
