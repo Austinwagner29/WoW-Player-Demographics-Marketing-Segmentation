@@ -29,9 +29,9 @@ To support strategic decision, the dataset contains survey responses from 100 un
 
 <br>
 
-The complete SQL Query analysis, including all data cleaning, transformations, and business questions, can be viewed [Here:](https://github.com/Austinwagner29/World-of-Warcraft-Player-Demographics-Marketing-Segmentation/blob/main/WoW_project.sql)
+The complete SQL analysis, including all data cleaning, Queries, and business questions, can be viewed [Here](https://github.com/Austinwagner29/World-of-Warcraft-Player-Demographics-Marketing-Segmentation/blob/main/WoW_project.sql).
 
-The interactive Power BI dashboard used to visualize the results of this analysis can be found here:
+The interactive Power BI dashboard used to visualize the results of this analysis can be found here.
 
 # Project Objective
 - Analyze player demographics and game play preferences
@@ -89,8 +89,12 @@ After analyzing the data, there are clear patterns in class and role preferences
 <br>
 
 # Recommendations
--
+- A promotional event tailored towards the most popular classes such as Druid, Death Knight, Hunter, and or Monk should increase engagement among the surveyed player segments. This can be achieved with having class specific armor sets or exclusive class-themed mounts in Blizzards next promotional event. Aligning promotional content with players existing class preferences will increase participation and increase overall participation levels for future events.
 
--
+- Both PvE and the Female player base represent the largest segment within this survey, Blizzard's marketing team should prioritize their seasonal trailers that include new raids and dungeons, new PvE progression systems, and unveil new story mode campaign to get players excited. Emphasizing content most players already enjoy will increase player interest and participation which will drive overall engagement levels. 
 
--
+- Role-playing represents a smaller but meaningful game play segment. Adding role-playing cosmetic items through promotional events, the in-game store, or the monthly trading-post for players to obtain would increase the activity and engagement within their own role-playing groups.
+
+- PvP recorded the lowest participation among all three game-play styles. Blizzard's marketing team should incentivize unique PvP exclusive rewards such as Mounts, PvP armor sets, cosmetic weapon illusions, and tabards. Blizzard should also further investigate the state of the PvP game-play with player surveys on how to improve with future game updates and content releases with the help of the development team.
+
+- Although Male players have the lowest level of engagement out of all three demographics, its important to note they have the highest max level character count. It would be worth investigating to see how Blizzard can increase the engagement level with Male players to potentially promote new growth.
