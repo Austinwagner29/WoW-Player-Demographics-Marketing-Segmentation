@@ -80,21 +80,22 @@ After analyzing the data, there are clear patterns in class and role preferences
 <br>
 
 ### Engagement level
-- The Other gender demographic shows the highest average number of max-level characters (3.42), indicating the highest level of player engagement within this survey.
+- The Male gender demographic shows the highest average number of max-level characters (3.43), indicating the highest level of player engagement within this survey.
 
-- Female players represent the largest portion of the survey while maintaining the second highest engagement average number of max-level character (2.91).
+- Other players represent the smallest portion of the survey while maintaining the second-highest engagement of the average number of max-level characters (2.93).
   
-- Male players recorded the lowest average number of max-level characters (2.59), suggesting lower overall engagement relative to the Female and Other demographics within this survey.
+- Female players recorded the lowest average number of max-level characters (2.88), suggesting lower overall engagement relative to the Male and Other demographics within this survey.
+
 
 <br>
 
 # Recommendations
-- A promotional event tailored towards the most popular classes such as Druid, Death Knight, Hunter, and/or Monk should increase engagement among the surveyed player segments. This can be achieved by introducing class specific armor sets or exclusive class-themed mounts in Blizzard's next promotional event. Aligning promotional content with players existing class preferences may increase participation and increase overall participation levels for future events.
+- A promotional event tailored towards the most popular classes such as Monk, Death Knight, Hunter, and/or Druid should increase engagement among the surveyed player segments. This can be achieved by introducing class specific armor sets or exclusive class-themed mounts in Blizzard's next promotional event. Aligning promotional content with players existing class preferences may increase participation and increase overall participation levels for future events.
 
-- Both PvE and the Female player base represent the largest segment within this survey, Blizzard's marketing team should prioritize their seasonal trailers that include new raids and dungeons, new PvE progression systems, and unveil new story mode campaign to get players excited. Emphasizing content most players already enjoy could increase player interest and participation which may drive overall engagement levels. 
+- With PvE being the most popular gameplay choice, Blizzard's marketing team should prioritize their seasonal trailers that highlight new raids and dungeons, new PvE progression systems, and unveil new story mode campaigns to get players excited. Emphasizing content most players already enjoy could increase player interest and participation which may drive overall engagement.
 
 - Role-playing represents a smaller but meaningful gameplay segment. Adding role-playing cosmetic items through promotional events, the in-game store, or the monthly trading-post for players to obtain would increase the activity and engagement within their own role-playing groups.
 
 - PvP recorded the lowest participation among all three gameplay styles. Blizzard's marketing team should incentivize unique PvP exclusive rewards such as Mounts, PvP armor sets, cosmetic weapon illusions, and tabards. Blizzard should also further investigate the state of the PvP gameplay with player surveys on how to improve with future game updates and content releases with the help of the development team.
 
-- Although Male players have the lowest level of engagement out of all three demographics, its important to note they have the highest individual max-level character count. It would be worth investigating to see how Blizzard can increase the engagement level with Male players to potentially promote new growth.
+- Male players show the highest level of engagement, with the highest individual count of max-level characters. Blizzard could investigate this subgroup within the Male player base in order to replicate this level of engagement within the other gender demographics.
