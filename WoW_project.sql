@@ -325,10 +325,10 @@ ORDER BY
    BUSINESS QUESTION 3
 
    What player segment appears to be the most engaged based off the number 
-   of max level characters that players has?
+   of max-level characters that players has?
    ========================================================================== */
 
--- Lets investigate on how many players have max level toons.
+-- Lets investigate on how many players have max-level toons.
 
 SELECT
   STRING_AGG(DISTINCT gender, ', ' ORDER BY Gender) AS Genders,
@@ -341,7 +341,7 @@ GROUP BY
 ORDER BY 
   Max_level_toons DESC;
 
-/* QUERY RESULTS: Max Level Characters by Gender
+/* QUERY RESULTS: Max-Level Characters by Gender
 +----------------------+-----------------+--------------+
 | Genders              | Max_Level_Toons | Player_Count |
 +----------------------+-----------------+--------------+
@@ -358,9 +358,12 @@ ORDER BY
 | Female, Male, Other  | 0               | 6            |
 +----------------------+-----------------+--------------+
 
--- While Male players have the highest max level characters (9-12), the majority of the players fall between the range of 1 to 6 max level characters. 
+-- Most players own between 1 to 6 max-level characters in this survey.
+-- Male players record the highest individual max-level character (between 9-12) even though this survey represents a small portion of the male demographic.
+-- These higher individual max-level character counts contribute to the Male demographic recording the highest average number of max-level characters. This trend may indicate the 
+   presence of a highly engaged subgroup and is worth further investigation.
 
--- Calculating the average number of max level characters by gender of this result will give greater insight on player engagement through this survey
+-- Calculating the average number of max-level characters by gender could help greater insight on player engagement.
 */
 
 SELECT
@@ -369,29 +372,32 @@ SELECT
   Count(*) AS Total_Count
 FROM
   `austin-wagner-projects.WoW_Demographics.Cleaned Table`
-WHERE `Max Level Characters` BETWEEN 1 AND 6
 GROUP BY
   Gender
 ORDER BY
   AVG_Max_Toons DESC;
 
-/* QUERY RESULTS: Average Max Level Characters by Gender
+/* QUERY RESULTS: Average Max-Level Characters by Gender
+
 +--------+---------------+-------------+
 | Gender | AVG_Max_Toons | Total_Count |
 +--------+---------------+-------------+
-| Other  |     3.42      |     12      |
-| Female |     2.91      |     55      |
-| Male   |     2.59      |     22      |
+| Male   | 3.43          | 28          |
+| Other  | 2.93          | 14          |
+| Female | 2.88          | 58          |
 +--------+---------------+-------------+
 
+
 -- -- Business Insights:
--- The Other gender demographic has the highest average number of max level characters (3.42)
--- Female players respresent the largest portion of this survey while still maintaining high engagement with the average of max level characters (2.91)
--- Although Male players have the highest individual number of max level characters, their overall engagement is the lowest among the three demographics (2.59)
+-- The Male gender demographic has the highest average number of max-level characters (3.43), indicating the highest overall engagement.
+-- Despite Female players respresent the largest portion of this survey, they recorded the lowest average number of max-level characters (2.88).
+-- Although Other players represent the smallest population, they still maintain the second-highest average number of max-level characters level (2.93).
 
--- Conclusion: the Other gender demographic has the highest engagement, although the Female players should still be marketed to due to them making up the largest 
-   population in this survey
+-- Conclusion: A small number of Male players reported 9, 11, and 12 max-level characters, which contributes to the Male demographic recording the highest average number of max-level characters among the 
+   three demographics. Although the Female players should still be marketed to due to them making up the largest population in this survey, it is important to note the Other gender demographic record the 
+   second-highest engagement.
 
--- Recommendation: Blizzard should prioritize marketing campaigns and promotional events towards the Female player base as they show great engagement while also making
-   up the largest population of this survey. It is important to note that the Other gender demographic maintains the highest average max level character, and will
-   still benefit from incorporating events for this player base
+-- Recommendation: Male players recorded the highest average number of max-level characters within this survey. However, there is a contribuing factor due to them also having the highest individual max-level 
+   character count. Blizzard should investigate further among Male players to see if this group is worth marketing towards. The Other gender demographic, although records to lowest population, maintains 
+   the second-highest average max-level character, and will still benefit from incorporating events for this player base.
+*/
