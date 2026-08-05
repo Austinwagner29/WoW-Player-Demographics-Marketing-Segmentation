@@ -80,9 +80,17 @@ After analyzing the data, there are clear patterns in class and role preferences
 <br>
 
 ### Engagement level
-- The Other gender demographic shows the highest average number of max level characters. indicating the highest level of player engagement within this survey.
+- The Other gender demographic shows the highest average number of max level characters (3.42), indicating the highest level of player engagement within this survey.
 
-- 
+- Female players represent the largest portion of the survey while maintaining the second highest engagement average number of max level character (2.91).
   
-- 
+- Male players recorded the lowest average number of max-level characters (2.59), suggesting lower overall engagement relative to the Female and Other demographics within this survey.
 
+<br>
+
+# Recommendations
+-
+
+-
+
+-
