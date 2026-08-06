@@ -55,18 +55,22 @@ The interactive Power BI dashboard used to visualize the results of this analysi
 
 
 # Executive Summary
-After analyzing the data, there are clear patterns in class and role preferences across gender demographics. While the Female and Other gender demographic heavily leans towards playing the DPS role with a shared interest for the *"Druid"* class, Male players show a more balanced distribution across all roles with the *"Monk"* class being the strongest preference. With *"PvE"* being the most popular gameplay style, Blizzard's marketing team would benefit greatly from focusing on the PvE community as its primary focus in future marketing campaigns and promotional events.
+After analyzing the data, there are clear patterns in class and role preferences across gender demographics. Female and Other players show the highest participation in the DPS role, while Male players exhibit a more balanced distribution across DPS, Healer, and Tank. This pattern is reflected in class preferences, with Female and Other players favoring the *"Druid"* class, whereas *"Monk"* is the most frequently selected class among Male players. *"PvE"* if the most popular gameplay style across all demographics within this survey, and Blizzard's marketing team could benefit greatly from focusing on the PvE community as its primary focus in future marketing campaigns and promotional events. As for engagement level, Male players record the highest average max-level characters, as well as a small subgroup of male players that help drive this metric due to also having the highest individual count of max-level characters.
+
+<img width="1221" height="500" alt="image" src="https://github.com/user-attachments/assets/d946c7c8-d5da-4d7c-91cc-1c589a7ee0c6" />
 
 
 # Insights Deep Dive
 ### Class/Role Patterns and Trends
 - DPS is the dominant role across all three gender demographics, with Female (84.48%) and Other players (85.71%) showing the strongest preference.
 
-- Male players show the most balanced role distribution across all roles. Participation in the healer role for Male players (42.86%) was only slightly higher than Female players (39.66%) and Other players (35.71%)
+- Male players show the most balanced role distribution across all roles. Participation in the healer role for Male players (42.86%) was only slightly higher than Female players (39.66%) and Other players (35.71%).
   
-- Tank is the least selected role among all three demographics, but Male players show a significantly higher percentage in the Tank role (39.29%) compared to Female (27.59%) and Other players (14.29%)
+- Tank is the least selected role among all three demographics, but Male players show a significantly higher percentage in the Tank role (39.29%) compared to Female (27.59%) and Other players (14.29%).
 
-- Druid shows the largest percentage out of all classes for Female and Other players, while for Male players, the Monk class is the most favored. Death Knight and Hunter reflect consistency among all three demographics
+- Druid shows the largest percentage out of all classes for Female and Other players, while for Male players, the Monk class is the most favored. Death Knight and Hunter reflect consistency among all three demographics.
+  
+<img width="1210" height="483" alt="image" src="https://github.com/user-attachments/assets/f8785266-b780-4f82-ae63-45271889b940" />
 
 <br>
 
@@ -90,7 +94,7 @@ After analyzing the data, there are clear patterns in class and role preferences
 <br>
 
 # Recommendations
-- A promotional event tailored towards the most popular classes such as Monk, Death Knight, Hunter, and/or Druid should increase engagement among the surveyed player segments. This can be achieved by introducing class specific armor sets or exclusive class-themed mounts in Blizzard's next promotional event. Aligning promotional content with players existing class preferences may increase participation and increase overall participation levels for future events.
+- A promotional event tailored towards the most popular classes such as Druid, Hunter,  Death Knight, and/or Priest should increase engagement among the surveyed player segments. This can be achieved by introducing class specific armor sets or exclusive class-themed mounts in Blizzard's next promotional event. Aligning promotional content with players existing class preferences may increase participation and increase overall participation levels for future events.
 
 - With PvE being the most popular gameplay choice, Blizzard's marketing team should prioritize their seasonal trailers that highlight new raids and dungeons, new PvE progression systems, and unveil new story mode campaigns to get players excited. Emphasizing content most players already enjoy could increase player interest and participation which may drive overall engagement.
 
