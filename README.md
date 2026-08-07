@@ -31,7 +31,8 @@ To support strategic decision-making, the dataset contains survey responses from
 
 The complete SQL analysis, including all data cleaning, queries, and business questions, can be viewed [Here](https://github.com/Austinwagner29/World-of-Warcraft-Player-Demographics-Marketing-Segmentation/blob/main/WoW_project.sql).
 
-The interactive Power BI dashboard used to visualize the results of this analysis can be found here.
+The interactive Power BI dashboard used to visualize the results of this analysis can be found [here](
+).
 
 # Project Objective
 - Analyze player demographics and gameplay preferences
@@ -75,21 +76,23 @@ After analyzing the data, there are clear patterns in class and role preferences
 <br>
 
 ### Gameplay Preferences
-- PvE has the highest popularity between all three gameplay styles. This is a valuable insight for the marketing team to focus on the primary audience
+- PvE has the highest popularity across all three gameplay styles. Blizzard's marketing team should recognize PvE players as their primary target audience when planning future marketing campaigns and content trailer releases
 
-- Players in the Other demographic show a stronger interest in the RP gameplay style over PvE and PvP. This will be a major factor in the following section regarding engagement levels.
+- Players in the Other demographic show a relatively stronger interest in RP gameplay compared to PvE and PvP. This suggests Blizzard has an opportunity to develop more RP-focused content, community events, or targeted marketing aimed at this niche audience.
   
-- PvP is the least represented gameplay style across all three gender demographics.
+- PvP is the least represented gameplay within this survey. It could be worth Blizzard to investigate into this to see if there is any potential growth with consistent gameplay revamps or updates.
+
+<img width="1240" height="570" alt="image" src="https://github.com/user-attachments/assets/6e427717-2ddf-421d-99ae-15c6bfb808f8" />
+
 
 <br>
 
 ### Engagement level
 - The Male gender demographic shows the highest average number of max-level characters (3.43), indicating the highest level of player engagement within this survey.
 
-- Other players represent the smallest portion of the survey while maintaining the second-highest engagement of the average number of max-level characters (2.93).
+- The Other demographic represents the smallest portion of the survey, it recorded the second-highest average number of max-level characters (2.93), suggesting relatively strong engagement despite its smaller sample size.
   
-- Female players recorded the lowest average number of max-level characters (2.88), suggesting lower overall engagement relative to the Male and Other demographics within this survey.
-
+- Although Female players make up the largest population within this survey, they recorded the lowest average number of max-level characters (2.88). This presents an opportunity for Blizzard to conduct additional player research to better understand the factors influencing the engagement level within this demographic.
 
 <br>
 
